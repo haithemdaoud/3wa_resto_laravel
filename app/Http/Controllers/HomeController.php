@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function page() {
-        return 'Hello !!';
+        return 'Hello World !!';
     }
 
     public function welcome() {
