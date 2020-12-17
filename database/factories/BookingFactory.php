@@ -6,7 +6,7 @@ use App\Booking;
 use App\User;
 use Faker\Generator as Faker;
 
-$factory->define(Model::class, function (Faker $faker) {
+$factory->define(Booking::class, function (Faker $faker) {
     return [
         'booking_date' => $faker->date,
         'booking_time' => $faker->time,
