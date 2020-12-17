@@ -11,9 +11,8 @@ $factory->define(OrderLine::class, function (Faker $faker) {
     return [
         'meal_id' => Meal::get('id')->random(),
         'order_id' => Order::get('id')->random(),
-        'quantity_ordered' => $faker->randomNumber($nbDigits = NULL, $strict = false),
-        'price_each' => $faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = NULL),
-        'created_at' => now(),
-        'updated_at' => now()
+        'quantity_ordered' => $faker->randomDigitNotNull,
+        'price_each' => $faker->randomFloat(3, 2, 300),
+        'created_at' => now()
     ];
 });

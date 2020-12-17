@@ -8,8 +8,8 @@ use Faker\Generator as Faker;
 
 $factory->define(Model::class, function (Faker $faker) {
     return [
-        'booking_date' => $faker->date(),
-        'booking_time' => $faker->time(),
+        'booking_date' => $faker->date,
+        'booking_time' => $faker->time,
         'number_of_seats' => $faker->randomDigitNotNull,
         'user_id' => User::get('id')->random(),
         'created_at' => now(),
