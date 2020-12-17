@@ -20,3 +20,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@welcome');
 
 Route::get('/page', 'HomeController@page');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
