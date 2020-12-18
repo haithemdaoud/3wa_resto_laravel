@@ -17,7 +17,7 @@ class CreateMealsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('photo');
-            $table->string('description');
+            $table->longText('description');
             $table->tinyInteger('quantity_in_stock');
             $table->double('buy_price', 8, 3);
             $table->double('sale_price', 8, 3);

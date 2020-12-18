@@ -8,7 +8,7 @@ use Faker\Generator as Faker;
 $factory->define(Meal::class, function (Faker $faker) {
     return [
         'name' => $faker->sentence(3, true),
-        'photo' => 'http://lorempixel.com/640/480/food/' . ($faker->randomDigit + 1),
+        'photo' => 'https://loremflickr.com/320/240/food?random=' . ($faker->randomDigit + 1),
         'description' => $faker->paragraph,
         'quantity_in_stock' => $faker->randomDigit,
         'buy_price' => $faker->randomFloat(3, 2, 150),
