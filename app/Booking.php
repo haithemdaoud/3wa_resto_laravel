@@ -17,4 +17,12 @@ class Booking extends Model
 
     // If we don't use timestamps
     // public $timestamps = false; 
+
+    /**
+     * Get the user that owns the Booking.
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }
