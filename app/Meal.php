@@ -9,8 +9,8 @@ class Meal extends Model
     /**
      * Get the orderLine that owns the Meal.
      */
-    public function orderLine()
+    public function orderLines()
     {
-        return $this->belongsTo('App\OrderLine');
+        return $this->hasMany('App\OrderLine');
     }  
 }

@@ -9,16 +9,16 @@ class OrderLine extends Model
     /**
      * Get the Orders for the orderLine.
      */
-    public function orders()
+    public function order()
     {
-        return $this->hasMany('App\Order');
+        return $this->belongsTo('App\Order');
     }
 
      /**
      * Get the Meals for the orderLine.
      */
-    public function meals()
+    public function meal()
     {
-        return $this->hasMany('App\Meal');
+        return $this->belongsTo('App\Meal');
     }
 }

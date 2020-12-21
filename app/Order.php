@@ -17,8 +17,8 @@ class Order extends Model
     /**
      * Get the orderLine that owns the Order.
      */
-    public function orderLine()
+    public function orderLines()
     {
-        return $this->belongsTo('App\OrderLine');
+        return $this->hasMany('App\OrderLine');
     }  
 }
