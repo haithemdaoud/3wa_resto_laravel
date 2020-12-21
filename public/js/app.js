@@ -37274,6 +37274,18 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+var deleteBookForm = document.querySelector("#d-book");
+var deleteBook = document.querySelector("#c-delete");
+
+function onClickDeleteBook(e) {
+  e.preventDefault();
+  deleteBookForm.submit();
+}
+
+window.addEventListener("DOMContentLoaded", function () {
+  deleteBook.addEventListener("click", onClickDeleteBook);
+});
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":

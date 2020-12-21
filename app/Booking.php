@@ -18,6 +18,8 @@ class Booking extends Model
     // If we don't use timestamps
     // public $timestamps = false; 
 
+    protected $guarded = [];
+
     /**
      * Get the user that owns the Booking.
      */

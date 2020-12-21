@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Booking;
 class BookingController extends Controller
 {
@@ -23,7 +24,8 @@ class BookingController extends Controller
      */
     public function index()
     {
-        $bookings = Booking::all();
+       // $bookings = Booking::all(); // SELECT * FROM bookings
+       $bookings = Auth::user()->bookings;
 
         return view('booking.index', compact('bookings'));
     }
@@ -35,7 +37,7 @@ class BookingController extends Controller
      */
     public function create()
     {
-        //
+        return view('booking.create');
     }
 
     /**
@@ -46,7 +48,18 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate($this->validationRules());
+
+        $booking = new Booking;
+
+        $booking->user_id = Auth::id();
+        $booking->booking_date = $request->booking_date;
+        $booking->booking_time = $request->booking_time;
+        $booking->number_of_seats = $request->number_of_seats;
+
+        $booking->save();
+
+        return redirect()->route('booking.index')->with('AddBooking', 'New booking added successfully.');
     }
 
     /**
@@ -63,12 +76,12 @@ class BookingController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Booking $booking)
     {
-        //
+        return view('booking.edit', compact('booking'));
     }
 
     /**
@@ -78,9 +91,13 @@ class BookingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Booking $booking)
     {
-        //
+        $validatedData = $request->validate($this->validationRules());
+
+        $booking->update($validatedData);
+
+        return redirect()->route('booking.show', $booking->id)->with('updateBooking', 'Booking updated successfully');
     }
 
     /**
@@ -89,8 +106,19 @@ class BookingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Booking $booking)
     {
-        //
+        $booking->delete();
+
+        return redirect()->route('booking.index')->with('deleteBooking', 'Booking deleted successfully');
+    }
+
+    private function validationRules()
+    {
+        return [
+            'booking_date' => 'required|date|after:now',
+            'booking_time' => 'required',
+            'number_of_seats' => 'required|min:1|max:20'
+        ];
     }
 }
