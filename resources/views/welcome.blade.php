@@ -14,13 +14,13 @@
       </div>
     </section>
   
-    <div class="album py-5 bg-light">
+    <div class="py-5 bg-light">
       <div class="container">
   
         <div class="row">
             @foreach($meals as $meal)
                 <div class="card-group col-md-4">
-                    <div class="card mb-5">
+                    <div class="album card mb-5">
                     <img src="{{ $meal->photo }}" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img" aria-label="Placeholder: Thumbnail">
                     <div class="card-body">
                         <h4 class="card-title">{{ $meal->name }}</h4>

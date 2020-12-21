@@ -32,17 +32,19 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a href="{{ route('booking.index') }}" class="nav-link">Booking</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">Order</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">Meal</a>
-                        </li>
-                    </ul>
+                    @auth
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a href="{{ route('booking.index') }}" class="nav-link">Booking</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">Order</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">Meal</a>
+                            </li>
+                        </ul>
+                    @endauth
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">

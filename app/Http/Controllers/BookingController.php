@@ -7,6 +7,16 @@ use App\Booking;
 class BookingController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -45,9 +55,9 @@ class BookingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Booking $booking)
     {
-        return view('booking.show', ['booking' => Booking::findOrFail($id)]);
+        return view('booking.show', compact('booking'));
     }
 
     /**
