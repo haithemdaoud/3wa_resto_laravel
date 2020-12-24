@@ -21,4 +21,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('booking', 'BookingController');
 
-
+Route::get('/order', 'HomeController@order')->name('order.index');

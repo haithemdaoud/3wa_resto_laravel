@@ -1,14 +1,13 @@
+import Vue from 'vue';
+import App from './App.vue';
+
 require('./bootstrap');
 
-const deleteBookForm = document.querySelector("#d-book");
-const deleteBook = document.querySelector("#c-delete");
+window.Vue = require('vue');
 
-function onClickDeleteBook(e) {
-    e.preventDefault();
-    deleteBookForm.submit();
-}
-
-window.addEventListener("DOMContentLoaded", () => {
-    deleteBook.addEventListener("click", onClickDeleteBook);
+const app = new Vue({
+    el: '#app',
+    components : {
+        App
+    }
 });
-

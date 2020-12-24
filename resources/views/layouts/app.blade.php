@@ -38,7 +38,7 @@
                                 <a href="{{ route('booking.index') }}" class="nav-link">Booking</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">Order</a>
+                                <a href="{{ route('order.index') }}" class="nav-link">Order</a>
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link">Meal</a>
